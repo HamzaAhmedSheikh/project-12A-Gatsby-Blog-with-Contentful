@@ -16,8 +16,21 @@
   },
   "license": "0BSD",
   "dependencies": {
+    "@contentful/rich-text-plain-text-renderer": "^14.1.2",
+    "@reduxjs/toolkit": "^1.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "dotenv": "^8.2.0",
+    "firebase": "^8.2.1",
     "gatsby": "^2.26.1",
+    "gatsby-image": "^2.8.0",
+    "gatsby-plugin-firebase": "^0.2.0-beta.4",
+    "gatsby-plugin-typescript": "^2.9.0",
+    "gatsby-source-contentful": "^4.3.0",
+    "gatsby-transformer-remark": "^2.13.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.2",
+    "typescript": "^4.1.3"
   }
 }
