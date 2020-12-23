@@ -3,7 +3,9 @@ require("dotenv").config({
   })
   
   module.exports = {
-      plugins: [ 
+    /* Your site config here */    
+    
+    plugins: [ 
       "gatsby-plugin-typescript",
       `gatsby-transformer-remark`,
       {
