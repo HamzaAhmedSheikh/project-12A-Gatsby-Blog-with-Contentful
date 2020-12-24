@@ -2,6 +2,9 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import Layout from '../components/Layout';
+import firebase from "gatsby-plugin-firebase";
+import { store, setLoggedIn } from "../redux/store";
+import { useSelector } from "react-redux";
 
 export const query = graphql`
   query($slug: String!) {
@@ -21,7 +24,25 @@ export const query = graphql`
 `;
 
  const BlogPost = (props) => {
-     console.log(props);
+    //  console.log(props);
+
+  const loggedIn = useSelector((state: {login : boolean}) => state.login)
+  console.log(loggedIn)
+
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      store.dispatch(setLoggedIn(true))
+    } else {
+      store.dispatch(setLoggedIn(false))
+    }
+  })
+
+  const Login = async () => {
+    var provider = new firebase.auth.GoogleAuthProvider()
+    await firebase.auth().signInWithPopup(provider)
+    store.dispatch(setLoggedIn(true))
+  }
+
 
     return (
       <Layout>
@@ -41,9 +62,17 @@ export const query = graphql`
               )
             }
 
-            <p>
+            <p className={loggedIn ? "paragraph" : "notlogged"}>
               {documentToPlainTextString(JSON.parse(props.data.contentfulBlogPost.body.raw))}
-            </p>    
+            </p> 
+            
+            {loggedIn ? (
+                ""
+              ) : (
+                <button className="log-btnn" onClick={() => Login()}>
+                  Login | Signup
+                </button>
+            )}              
             <button className="vist-btn">
               <Link to="/"> Visit the Blog Page </Link>
             </button>                     

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import { Link } from 'gatsby';
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import { Link } from "gatsby";
+import firebase from "gatsby-plugin-firebase";
+import "firebase/auth";
+import { useSelector } from "react-redux";
+import { store, setLoggedIn } from "../redux/store";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +29,32 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Navbar({ siteTitle }) {
+  const [name, setName] = useState("")
   const classes = useStyles();
+
+  const login = useSelector((state: { login: boolean }) => state.login)
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        setName(user.displayName)
+      }
+    })
+  
+    const Logout = () => {
+      firebase.auth().signOut().then(function () {
+          store.dispatch(setLoggedIn(false))
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+      setName("")
+    }  
+
+    const Login = async () => {
+      var provider = new firebase.auth.GoogleAuthProvider()
+      await firebase.auth().signInWithPopup(provider)
+      store.dispatch(setLoggedIn(false))
+    }
+
 
   return (
     <div className={classes.root}>
@@ -37,7 +63,21 @@ export default function Navbar({ siteTitle }) {
           <Typography variant="h6" className={classes.title}>
            <Link to="/" className={classes.a}> {siteTitle} </Link> 
           </Typography>
-          <Button color="inherit"> Login or Sign up </Button>
+          
+          <div className="navbar-log">
+            {name !== "" ? <span className="sp-one">Hi, {name}</span> : ""}
+            <span>
+              {login !== true ? (
+                <button className="log-btn" onClick={() => Login()}>
+                  Login | Signup
+                </button>
+              ) : (
+                <button className="log-btn" onClick={() => Logout()}>
+                  Logout
+                </button>
+             )}
+            </span>
+         </div>            
         </Toolbar>
       </AppBar>
       <div className="headerImg">          
