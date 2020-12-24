@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import Layout from '../components/Layout';
 
 export const query = graphql`
   query($slug: String!) {
@@ -23,9 +24,8 @@ export const query = graphql`
      console.log(props);
 
     return (
-      <div>
-        <Link to="/"> Visit the Blog Page </Link>
-        <div className="content">
+      <Layout>
+        <div className="content">          
           <h1 className="tempHead">{props.data.contentfulBlogPost.title}</h1>
            <span className="meta">
               Post on {props.data.contentfulBlogPost.publishedDate}
@@ -43,9 +43,12 @@ export const query = graphql`
 
             <p>
               {documentToPlainTextString(JSON.parse(props.data.contentfulBlogPost.body.raw))}
-            </p> 
+            </p>    
+            <button>
+              <Link to="/"> Visit the Blog Page </Link>
+            </button>                     
         </div>
-      </div>
+      </Layout>
     )
 }
-export default BlogPost
+export default BlogPost;

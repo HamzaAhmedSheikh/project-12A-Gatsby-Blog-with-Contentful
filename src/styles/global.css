@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
 
-body {
-    margin: 0px;
-    overflow-x: hidden;
-    font-family: 'Nunito Sans', sans-serif;  
+* {
+    box-sizing: border-box;
+  }
+
+body {      
+    font-size: 100%;
+    margin: 0;
+    line-height: 1.4283;
+    font-family: 'Nunito Sans', sans-serif;     
 }
 
 .head {
@@ -55,21 +60,21 @@ body {
 }
 
 .meta {
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
-    font-weight: 300;
+    font-weight: 600;
     margin-bottom: 20px;
     display: block;
 }
 
 .homeImg {
-    margin-left: 29%;
+    margin-left: 25%;
     width: 500px;    
 }
 
 .excerpt {
     margin: 30px 0 15px;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: 0.02em;
 }
 
@@ -92,6 +97,25 @@ body {
     border-color: #222;
     background-color: #222;
 }
+
+/*---------------------------Navbar------------------------*/
+/* .headerImg {
+    position: relative;
+    height: 326px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+} */
+
+.headerImg {
+    position: relative;
+    height: 326px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/header-image.jpg");
+}
+
+
 
 footer {
     margin-top: 30px;

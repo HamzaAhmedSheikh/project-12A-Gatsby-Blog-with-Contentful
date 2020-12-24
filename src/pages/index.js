@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
+import Layout from '../components/Layout';
 
 const Home = () => {
   const data = useStaticQuery(
@@ -31,7 +32,7 @@ const Home = () => {
      // console.log("data = ",data);
    
   return(
-    <div>
+    <Layout>
      <div>
        <ul className="posts">
         {data.allContentfulBlogPost.edges.map((edge) => {    
@@ -65,7 +66,7 @@ const Home = () => {
          })}
        </ul>
      </div>
-    </div>
+    </Layout>
   )  
 }
 
