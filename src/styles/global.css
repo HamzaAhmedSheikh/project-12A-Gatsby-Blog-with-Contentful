@@ -98,6 +98,25 @@ body {
     background-color: #222;
 }
 
+.vist-btn {
+    padding: 10px;    
+    background-color: white;   
+    outline: none !important;
+    border-radius: 10px;
+    border-color: red;
+}
+
+.vist-btn a {
+    text-decoration: none;
+    color: black;
+    outline: none !important;
+}
+
+.vist-btn:hover {
+    background-color: skyblue;       
+}
+
+
 /*---------------------------Navbar------------------------*/
 /* .headerImg {
     position: relative;

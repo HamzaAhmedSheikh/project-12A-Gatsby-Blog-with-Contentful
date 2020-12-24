@@ -44,7 +44,7 @@ export const query = graphql`
             <p>
               {documentToPlainTextString(JSON.parse(props.data.contentfulBlogPost.body.raw))}
             </p>    
-            <button>
+            <button className="vist-btn">
               <Link to="/"> Visit the Blog Page </Link>
             </button>                     
         </div>

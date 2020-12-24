@@ -9,3 +9,4 @@ public
 .env.test.local
 .env.production.local
 .env.development
+*.development
