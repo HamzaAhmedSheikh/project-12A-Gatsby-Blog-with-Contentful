@@ -10,3 +10,4 @@ public
 .env.production.local
 .env.development
 *.development
+.env.development
