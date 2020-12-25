@@ -78,9 +78,7 @@ export default function Navbar({ siteTitle }) {
              )}
             </span>
          </div>            
-        </Toolbar>
-        <div className="headerImg">          
-        </div>
+        </Toolbar>        
       </AppBar>      
     </div>  
     

@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import firebase from "gatsby-plugin-firebase";
 import { store, setLoggedIn } from "../redux/store";
 import { useSelector } from "react-redux";
+import Footer from '../components/footer';
 
 export const query = graphql`
   query($slug: String!) {
@@ -45,6 +46,7 @@ export const query = graphql`
 
 
     return (
+      <>
       <Layout>        
         <div className="content">          
           <h1 className="tempHead">{props.data.contentfulBlogPost.title}</h1>
@@ -76,8 +78,10 @@ export const query = graphql`
             <button className="vist-btn">
               <Link to="/"> Visit the Blog Page </Link>
             </button>                     
-        </div>
+        </div>        
       </Layout>
+      <Footer />
+      </>
     )
 }
 export default BlogPost;

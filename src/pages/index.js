@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import Layout from '../components/Layout';
+import Footer from '../components/footer';
 
 const Home = () => {
   const data = useStaticQuery(
@@ -32,6 +33,7 @@ const Home = () => {
      // console.log("data = ",data);
    
   return(
+    <>
     <Layout>      
      <div>
        <ul className="posts">
@@ -65,8 +67,10 @@ const Home = () => {
            );
          })}
        </ul>
-     </div>
+     </div>     
     </Layout>
+    <Footer />
+    </>
   )  
 }
 
