@@ -7,7 +7,7 @@ const Home = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+        allContentfulBlogPost {
           edges {
             node {
               title

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import { Link } from "gatsby";
-import firebase from "gatsby-plugin-firebase";
-import "firebase/auth";
-import { useSelector } from "react-redux";
-import { store, setLoggedIn } from "../redux/store";
+// import firebase from "gatsby-plugin-firebase";
+// import "firebase/auth";
+// import { useSelector } from "react-redux";
+// import { store, setLoggedIn } from "../redux/store";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,28 +32,28 @@ export default function Navbar({ siteTitle }) {
   const [name, setName] = useState("")
   const classes = useStyles();
 
-  const login = useSelector((state: { login: boolean }) => state.login)
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        setName(user.displayName)
-      }
-    })
+  // const login = useSelector((state: { login: boolean }) => state.login)
+  //   firebase.auth().onAuthStateChanged(function (user) {
+  //     if (user) {
+  //       setName(user.displayName)
+  //     }
+  //   })
   
-    const Logout = () => {
-      firebase.auth().signOut().then(function () {
-          store.dispatch(setLoggedIn(false))
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-      setName("")
-    }  
+  //   const Logout = () => {
+  //     firebase.auth().signOut().then(function () {
+  //         store.dispatch(setLoggedIn(false))
+  //       })
+  //       .catch(function (error) {
+  //         console.log(error)
+  //       })
+  //     setName("")
+  //   }  
 
-    const Login = async () => {
-      var provider = new firebase.auth.GoogleAuthProvider()
-      await firebase.auth().signInWithPopup(provider)
-      store.dispatch(setLoggedIn(false))
-    }
+  //   const Login = async () => {
+  //     var provider = new firebase.auth.GoogleAuthProvider()
+  //     await firebase.auth().signInWithPopup(provider)
+  //     store.dispatch(setLoggedIn(false))
+  //   }
 
 
   return (
@@ -64,7 +64,7 @@ export default function Navbar({ siteTitle }) {
            <Link to="/" className={classes.a}> {siteTitle} </Link> 
           </Typography>
           
-          <div className="navbar-log">
+          {/* <div className="navbar-log">
             {name !== "" ? <span className="sp-one">Hi, {name}</span> : ""}
             <span>
               {login !== true ? (
@@ -77,7 +77,7 @@ export default function Navbar({ siteTitle }) {
                 </button>
              )}
             </span>
-         </div>            
+         </div>             */}
         </Toolbar>        
       </AppBar>      
     </div>  

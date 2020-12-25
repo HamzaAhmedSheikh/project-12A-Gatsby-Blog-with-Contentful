@@ -2,9 +2,9 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import Layout from '../components/Layout';
-import firebase from "gatsby-plugin-firebase";
-import { store, setLoggedIn } from "../redux/store";
-import { useSelector } from "react-redux";
+// import firebase from "gatsby-plugin-firebase";
+// import { store, setLoggedIn } from "../redux/store";
+// import { useSelector } from "react-redux";
 import Footer from '../components/footer';
 
 export const query = graphql`
@@ -25,24 +25,24 @@ export const query = graphql`
 `;
 
  const BlogPost = (props) => {
-    //  console.log(props);
+      console.log(props);
 
-  const loggedIn = useSelector((state: {login : boolean}) => state.login)
-  console.log(loggedIn)
+  // const loggedIn = useSelector((state: {login : boolean}) => state.login)
+  // console.log('loggedIn ===> ', loggedIn)
 
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      store.dispatch(setLoggedIn(true))
-    } else {
-      store.dispatch(setLoggedIn(false))
-    }
-  })
+  // firebase.auth().onAuthStateChanged(function (user) {
+  //   if (user) {
+  //     store.dispatch(setLoggedIn(true))
+  //   } else {
+  //     store.dispatch(setLoggedIn(false))
+  //   }
+  // })
 
-  const Login = async () => {
-    var provider = new firebase.auth.GoogleAuthProvider()
-    await firebase.auth().signInWithPopup(provider)
-    store.dispatch(setLoggedIn(true))
-  }
+  // const Login = async () => {
+  //   var provider = new firebase.auth.GoogleAuthProvider()
+  //   await firebase.auth().signInWithPopup(provider)
+  //   store.dispatch(setLoggedIn(true))
+  // }
 
 
     return (
@@ -64,17 +64,17 @@ export const query = graphql`
               )
             }
 
-            <p className={loggedIn ? "paragraph" : "notlogged"}>
+            <p>
               {documentToPlainTextString(JSON.parse(props.data.contentfulBlogPost.body.raw))}
             </p> 
             
-            {loggedIn ? (
+            {/* {loggedIn ? (  className={loggedIn ? "paragraph" : "notlogged"}
                 ""
               ) : (
                 <button className="login-btn" onClick={() => Login()}>
                   Login | Signup
                 </button>
-            )}              
+            )}               */}
             <button className="vist-btn">
               <Link to="/"> Visit the Blog Page </Link>
             </button>                     
