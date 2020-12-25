@@ -11,8 +11,8 @@ require("dotenv").config({
       {
         resolve: `gatsby-source-contentful`,
         options: {
-          spaceId: process.env.CONTENTFUL_SPACE_ID,
-          accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+          spaceId: 'veuwxj3lf5hu', //process.env.CONTENTFUL_SPACE_ID
+          accessToken: '3P97TEL26kqRgPNPUcttPXQopMQUXnTPLEXMykem8y4', //process.env.CONTENTFUL_ACCESS_TOKEN
         },
       },
       {
