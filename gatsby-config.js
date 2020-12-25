@@ -20,12 +20,12 @@ require("dotenv").config({
         options: {
           credentials: {
             apiKey: process.env.API_KEY,
-            authDomain: "gatsby-blog-with-contentful.firebaseapp.com",
-            projectId: "gatsby-blog-with-contentful",
-            storageBucket: "gatsby-blog-with-contentful.appspot.com",
-            messagingSenderId: "72815546494",
-            appId: "1:72815546494:web:7abf605495d6c96396482f",
-            measurementId: "G-PBJXLFPF82",
+            authDomain: process.env.authDomain,    
+            projectId: process.env.projectId,
+            storageBucket: process.env.storageBucket,
+            messagingSenderId: process.env.messagingSenderId,
+            appId: process.env.appId,
+            measurementId: process.measurementId,
           },
         },
       },

@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -134,5 +137,43 @@ body {
     background-image: url("../images/header-image.jpg");
 }
 
+.login-btn {
+    padding: 8px;    
+    border-radius: 10px;
+    border-color: rebeccapurple;
+    outline: none;
+    background-color: ghostwhite;
+    color: green;
+    font-weight: bold; 
+    font-family: 'JetBrains Mono', monospace;  
+    font-size: 14px; 
+    margin-bottom: 7px;
+}
 
+.login-btn:hover {
+    cursor: pointer;
+}
 
+.logout-btn {
+    padding: 8px;
+    border-radius: 10px;
+    border-color: rebeccapurple;
+    outline: none;
+    background-color: ghostwhite;
+    color: indianred;
+    font-weight: bold;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    cursor: pointer;
+}
+
+.sp-one {
+    margin-right: 15px;
+    font-weight: bold;
+    color: #00ff15;
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'Jura', sans-serif;
+}

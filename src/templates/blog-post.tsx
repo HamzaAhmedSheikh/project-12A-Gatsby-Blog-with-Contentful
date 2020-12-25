@@ -45,7 +45,7 @@ export const query = graphql`
 
 
     return (
-      <Layout>
+      <Layout>        
         <div className="content">          
           <h1 className="tempHead">{props.data.contentfulBlogPost.title}</h1>
            <span className="meta">
@@ -69,7 +69,7 @@ export const query = graphql`
             {loggedIn ? (
                 ""
               ) : (
-                <button className="log-btnn" onClick={() => Login()}>
+                <button className="login-btn" onClick={() => Login()}>
                   Login | Signup
                 </button>
             )}              

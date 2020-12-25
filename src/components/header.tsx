@@ -68,20 +68,20 @@ export default function Navbar({ siteTitle }) {
             {name !== "" ? <span className="sp-one">Hi, {name}</span> : ""}
             <span>
               {login !== true ? (
-                <button className="log-btn" onClick={() => Login()}>
-                  Login | Signup
+                <button className="login-btn" onClick={() => Login()}>
+                  Login | Sign-up
                 </button>
               ) : (
-                <button className="log-btn" onClick={() => Logout()}>
+                <button className="logout-btn" onClick={() => Logout()}>
                   Logout
                 </button>
              )}
             </span>
          </div>            
         </Toolbar>
-      </AppBar>
-      <div className="headerImg">          
-       </div>
+        <div className="headerImg">          
+        </div>
+      </AppBar>      
     </div>  
     
   );

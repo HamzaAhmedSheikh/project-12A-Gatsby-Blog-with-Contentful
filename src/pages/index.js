@@ -32,7 +32,7 @@ const Home = () => {
      // console.log("data = ",data);
    
   return(
-    <Layout>
+    <Layout>      
      <div>
        <ul className="posts">
         {data.allContentfulBlogPost.edges.map((edge) => {    

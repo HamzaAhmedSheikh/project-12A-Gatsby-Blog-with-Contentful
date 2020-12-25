@@ -4,7 +4,7 @@ import Navbar from './header'
 const Layout = ({children}) => {
     return (
       <div>
-        <Navbar siteTitle="Gatsby Blog Site" />
+        <Navbar siteTitle="Gatsby Blog Site" />        
         <div
           style={{
           margin: `0 auto`,
